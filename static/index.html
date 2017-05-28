@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Note Pro</title>
+    <link rel="stylesheet" href="default.css">
 </head>
 <body>
-
+    <nav class="header" role="navigation">
+        <div class="newNote"><a href="new.html">Create new Note</a></div>
+        <div class="style"><select name="styleselect" size="1"> <option selected>Black White-Style</option> <option>2nd Style</option></select></div>
+    </nav>
+    <div class="subheader">
+        <div class="order">
+            <button class="btnFinishDate" type="button">By finish date</button>
+            <button class="btnCreatedDate" type="button">By created Date</button>
+            <button class="btnImportance" type="button">By Importance</button>
+        </div>
+        <div class="filter">
+            <button class="btnFinished" type="button">Show finished</button>
+        </div>
+    </div>
+    <!-- Dynamic part Items: -->
+    <div class="item">
+        <div class="time" role="time">Nächsten Mittwoch</div>
+        <div class="title" role="title">CAS FEE Selbsttudium / Projekt Aufgabe erledigen</div>
+        <div class="importance" role="importance">Importance Logo</div>
+        <div class="state" role="state">Finished</div>
+        <div class="details" role="details">Butter<br>Eier</div>
+        <div class="edit" role="edit"><a href="new.html">Edit</a></div>
+    </div>
 </body>
 </html>
