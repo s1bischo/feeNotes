@@ -25,9 +25,11 @@ function save(){
     var date = datestring.split(".");
     entry.duedate = new Date(date[2], date[1]-1, date[0]); // JS special: month starts with zero: January = 0
     entry.duedate.setHours(12); // Save timestamp at 12:00 at actual timezone (if user changes timezone to +/-12h (showed date is not the same, but the moment is still the same!)
+    entry.createdate = new Date();
+    entry.state = false;
 
-    //console.log(entry.duedate.toString());
-    //console.log(entry.duedate);
+    //console.log(entry.createdate.toString());
+    //console.log(entry.createdate);
 
     if (entry.title) {
         var storage = localStorage.getItem("entry");
