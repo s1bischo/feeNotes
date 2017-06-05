@@ -8,6 +8,8 @@ $(document).ready(function () {
     });
     //$("#title").val('Initialwerte Titel falls noetig');
     renderStyle();
+
+    $(".rating").on("click", updateRate);
 });
 
 
@@ -38,4 +40,20 @@ function cancel(){
     window.location.replace("index.html");
 };
 
+function updateRate(event){
+    console.log("updateRate()");
+
+    var target = event.target;
+
+     var active = target.parentElement.querySelectorAll('.active').length;
+     //var index = target.index();
+
+
+     //var rate = 6 - target.index();
+    console.log(target.id);
+    /*
+     if (active == rate) {
+     rate = 0;
+     }*/
+};
 

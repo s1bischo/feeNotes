@@ -103,3 +103,40 @@ button:hover {
 .header {
 
 }
+
+
+.rating {
+    display: inline-block;
+    margin-right: 2em;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+}
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #999;
+}
+.rating > span::after {
+    content: '\21AF';
+    -webkit-font-smoothing: antialiased;
+}
+.rating > span:hover,
+.rating > span:hover ~ span, .rating:not(:hover) > span.active {
+    color: transparent;
+}
+.rating > span:hover::before,
+.rating > span:hover ~ span::before, .rating:not(:hover) > span.active::before {
+    position: absolute;
+    left: 0;
+    content: '\21AF'; /* definiert den stern siehe: https://www.toptal.com/designers/htmlarrows/symbols/ */
+    font-weight: 900;
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    color: red;
+    -webkit-font-smoothing: antialiased;
+}
+
+
