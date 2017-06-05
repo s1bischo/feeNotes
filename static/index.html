@@ -20,6 +20,18 @@
             <button class="btnFinished" type="button">Show finished</button>
         </div>
     </div>
+    <script id='entry' type='text/x-handlebars-template'>
+        <div class="item">
+        {{#each customers}}
+            <div class="time" role="time">{{ time }}</div>
+            <div class="title" role="title">{{ title }}</div>
+            <div class="importance" role="importance">{{ importance }}</div>
+            <div class="state" role="state">{{ state }}</div>
+            <div class="details" role="details">{{ details }}</div>
+            <div class="edit" role="edit"><a href="#new">{{ edit }}</a></div>
+        {{/each}}
+        </div>
+    </script>
     <!-- Dynamic part Items: -->
     <div class="item">
         <div class="time" role="time">Nächsten Mittwoch</div>
