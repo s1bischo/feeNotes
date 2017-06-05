@@ -17,7 +17,7 @@ Silvio Bischof
       Auf der Hauptseite die Anzahl darstellen.
 - [x] Style Switcher implementieren.
       Einen zweiten sinnvollen Style ausdenken.
-- [ ] 4, 24.05.2017: Hauptseite ausprogrammieren: Anzeigen der Einträge / Filtern / Sortieren
+- [x] 4, 24.05.2017: Hauptseite ausprogrammieren: Anzeigen der Einträge / Filtern / Sortieren
 - [x] Handlebars verwenden für das Rendern der Einträge.
 - [ ] Detailseite ausprogrammieren: Erfassen / Editieren
 - [ ] 5, 31.05.2017: JavaScript optimieren. Patterns anwenden. Nutzen von Klassen für die Datenhaltung.
