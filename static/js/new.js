@@ -1,12 +1,12 @@
 'use strict'
 
-const maxImportance = 5;
+const gmaxImportance = 5;
 var gImportance = 0;
 
 $(document).ready(function () {
     $("#btnSave").on("click", save);
     $("#btnCancel").on("click", cancel);
-    $("#datepicker").datepicker({
+    $("#dueDate").datepicker({
         dateFormat: "dd.mm.yy"
     });
     //$("#title").val('Initialwerte Titel falls noetig');
@@ -17,10 +17,19 @@ $(document).ready(function () {
 
 
 function save(){
-    var title = $("#title").val();
-    var details = $("#details").val();
+    var entry = new Object();
+    entry.title = $("#title").val();
+    entry.details = $("#details").val();
+    entry.importance = validateImportance(gImportance);
+    var datestring = $("#dueDate").val();
+    var date = datestring.split(".");
+    entry.dueDate = new Date(date[2], date[1]-1, date[0]); // JS special: month starts with zero: January = 0
+    entry.dueDate.setHours(12); // Save timestamp at 12:00 at actual timezone (if user changes timezone to +/-12h (showed date is not the same, but the moment is still the same!)
 
-    if (title) {
+    //console.log(entry.dueDate.toString());
+    //console.log(entry.dueDate);
+
+    if (entry.title) {
         var storage = localStorage.getItem("entry");
 
         if (storage) {
@@ -30,7 +39,7 @@ function save(){
             storage = [];
         }
 
-        storage.push({title: title, details: details});
+        storage.push(entry);
         localStorage.setItem("entry", JSON.stringify(storage));
         window.location.replace("index.html");
     }
@@ -61,26 +70,30 @@ function impPlus() {
 
 function showImportance() {
     // validate importance
-    gImportance = Number(gImportance);
-    if (gImportance > maxImportance) {
-        gImportance = maxImportance;
-    }
-    if (gImportance < 0) {
-        gImportance = 0;
-    }
-    console.log("Importance changed to "+ gImportance);
+    gImportance = validateImportance(gImportance);
 
     // create html for importance
     var html = '<span class="rating">';
-    for (var i = 1; i <= maxImportance; i++) {
-        if (i <= (maxImportance - gImportance)) {
-            html += '<span onclick="updateImportance(' + (maxImportance + 1 - i) + ')""></span>';
+    for (var i = 1; i <= gmaxImportance; i++) {
+        if (i <= (gmaxImportance - gImportance)) {
+            html += '<span onclick="updateImportance(' + (gmaxImportance + 1 - i) + ')""></span>';
         }
         else {
-            html += '<span onclick="updateImportance(' + (maxImportance + 1 - i) + ')" class="active"></span>';
+            html += '<span onclick="updateImportance(' + (gmaxImportance + 1 - i) + ')" class="active"></span>';
         }
     }
     html += '</span>';
     html += '<button onclick="impMinus()">-</button><button onclick="impPlus()">+</button>'
     $('.importanceForm').html(html);
+}
+
+function validateImportance(importance) {
+    importance = Number(importance);
+    if (importance > gmaxImportance) {
+        importance = gmaxImportance;
+    }
+    if (importance < 0) {
+        importance = 0;
+    }
+    return importance;
 }
