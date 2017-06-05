@@ -26,7 +26,7 @@ function save(){
 
         storage.push({title: title, details: details});
         localStorage.setItem("entry", JSON.stringify(storage));
-        //window.location.replace("index.html");
+        window.location.replace("index.html");
     }
     else {
         $(".titleError").html('Titel fehlt');
