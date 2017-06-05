@@ -75,6 +75,10 @@ button:hover {
     width: 100%;
 }
 
+.titleError {
+    color: red;
+}
+
 .header {
     display: grid; /* basis einstellung fuer layouting grid, flexbox, .... */
     grid-template-columns: 1fr 30em; /* 1fr (one fraction): Anzahl spalten */

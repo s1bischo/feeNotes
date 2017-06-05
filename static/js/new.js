@@ -1,7 +1,20 @@
 'use strict'
+
+$(document).ready(function () {
+    $("#btnSave").on("click", save);
+    $("#btnCancel").on("click", cancel);
+    $("#datepicker").datepicker({
+        dateFormat: "dd.mm.yy"
+    });
+    //$("#title").val('Initialwerte Titel falls noetig');
+});
+
+
 function save(){
-    var name = $("title").val; //  document.getElementById("name").value;
-    if (name) {
+    var title = $("#title").val();
+    var details = $("#details").val();
+
+    if (title) {
         var storage = localStorage.getItem("entry");
 
         if (storage) {
@@ -11,9 +24,12 @@ function save(){
             storage = [];
         }
 
-        storage.push(name);
+        storage.push({title: title, details: details});
         localStorage.setItem("entry", JSON.stringify(storage));
-        window.location.replace("index.html");
+        //window.location.replace("index.html");
+    }
+    else {
+        $(".titleError").html('Titel fehlt');
     }
 };
 
