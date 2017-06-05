@@ -23,11 +23,11 @@ function save(){
     entry.importance = validateImportance(gImportance);
     var datestring = $("#dueDate").val();
     var date = datestring.split(".");
-    entry.dueDate = new Date(date[2], date[1]-1, date[0]); // JS special: month starts with zero: January = 0
-    entry.dueDate.setHours(12); // Save timestamp at 12:00 at actual timezone (if user changes timezone to +/-12h (showed date is not the same, but the moment is still the same!)
+    entry.duedate = new Date(date[2], date[1]-1, date[0]); // JS special: month starts with zero: January = 0
+    entry.duedate.setHours(12); // Save timestamp at 12:00 at actual timezone (if user changes timezone to +/-12h (showed date is not the same, but the moment is still the same!)
 
-    //console.log(entry.dueDate.toString());
-    //console.log(entry.dueDate);
+    //console.log(entry.duedate.toString());
+    //console.log(entry.duedate);
 
     if (entry.title) {
         var storage = localStorage.getItem("entry");
