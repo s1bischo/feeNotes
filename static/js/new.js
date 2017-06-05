@@ -7,6 +7,7 @@ $(document).ready(function () {
         dateFormat: "dd.mm.yy"
     });
     //$("#title").val('Initialwerte Titel falls noetig');
+    renderStyle();
 });
 
 

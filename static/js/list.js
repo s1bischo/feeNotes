@@ -38,14 +38,6 @@ function renderItems() {
     $("#item").html(entryHtml(storage.sort(compareEntry))); // innerHTML=entryHtml(songs.sort(compareSongs));
 }
 
-function renderStyle() {
-    var cssStyle = localStorage.getItem("style");
-    if (cssStyle) {
-        $("#styleselect").val(cssStyle);
-        document.getElementById("style").href = "css/" + cssStyle + ".css";
-    }
-}
-
 function compareEntry(s1, s2) {
     return s1.rating < s2.rating;
 }
