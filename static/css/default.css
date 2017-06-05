@@ -1,0 +1,98 @@
+/* versuch 1 */
+.newNote,
+.style{
+    padding: 1em;
+}
+.order {
+    background-color: white;
+    padding: 1em;
+}
+
+.filter {
+    padding: 1em;
+}
+
+.time {
+    padding: 1em;
+}
+.title {
+    padding: 1em;
+}
+.importance {
+    padding: 1em;
+}
+.state {
+    padding: 1em;
+}
+.details {
+    padding: 1em;
+}
+.edit {
+    padding: 1em;
+}
+
+select {
+    background-color: white; /* Green */
+    border: 2px solid darkgray;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+}
+
+button {
+    background-color: white; /* Green */
+    border: 2px solid darkgray;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.order button {
+    width: 33%;
+}
+.filter button {
+    width: 100%;
+}
+
+.titleError {
+    color: red;
+}
+
+.header {
+    display: grid; /* basis einstellung fuer layouting grid, flexbox, .... */
+    grid-template-columns: 1fr 30em; /* 1fr (one fraction): Anzahl spalten */
+    grid-template-rows: 6em; /* 100vh (full viewport height). */
+    background-color: lightgray;
+}
+
+.subheader {
+    display: grid; /* basis einstellung fuer layouting grid, flexbox, .... */
+    grid-template-columns: 1fr 30em; /* 1fr (one fraction): Anzahl spalten */
+    grid-template-rows: 6em; /* 100vh (full viewport height). */
+    background-color: lightgray;
+}
+
+.item {
+    display: grid; /* basis einstellung fuer layouting grid, flexbox, .... */
+    grid-template-columns: 20em 1fr 20em; /* 1fr (one fraction): Anzahl spalten */
+    grid-template-rows: 5em 10em; /* 100vh (full viewport height). */
+    background-color: lightgray;
+}
+
+.header {
+
+}

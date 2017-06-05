@@ -2,9 +2,10 @@
 
 $(document).ready(function () {
     $("#btnNew").on("click", createNew);
+    $("#styleselect").on("change", saveStyle);
 
+    renderStyle();
     renderItems();
-
 });
 
 const entryHtml = Handlebars.compile(document.getElementById("entry").innerText);
@@ -32,8 +33,17 @@ function renderItems() {
     else {
         //document.getElementById("numberOfElements").innerText = 0;
         //document.getElementById("elements").innerText = "Empty";
+        storage = [];
     }
     $("#item").html(entryHtml(storage.sort(compareEntry))); // innerHTML=entryHtml(songs.sort(compareSongs));
+}
+
+function renderStyle() {
+    var cssStyle = localStorage.getItem("style");
+    if (cssStyle) {
+        $("#styleselect").val(cssStyle);
+        document.getElementById("style").href = "css/" + cssStyle + ".css";
+    }
 }
 
 function compareEntry(s1, s2) {
@@ -43,4 +53,9 @@ function compareEntry(s1, s2) {
 function createNew(){
     window.location.replace("new.html");
 };
+
+function saveStyle(e) {
+    localStorage.setItem("style", $("#styleselect").val());
+    renderStyle();
+}
 
