@@ -6,18 +6,25 @@ var gImportance = 0;
 const entryHtml = Handlebars.compile(document.getElementById("entry").innerText);
 
 $(document).ready(function () {
-    $("#btnSave").on("click", save);
-    $("#btnCancel").on("click", cancel);
-    $("#dueDate").datepicker({
-        dateFormat: "dd.mm.yy"
-    });
     //$("#title").val('Initialwerte Titel falls noetig');
     renderStyle();
 
-    var item = {details: "details inhalt"};
+    var item = {
+        title: "Test titel",
+        details: "details inhalt",
+        importance: 2,
+        duedate: "2017-06-15T10:00:00.000Z",
+        state: "open"
+    };
     $("#form").html(entryHtml(item)); // innerHTML=entryHtml(songs.sort(compareSongs));
 
     showImportance();
+
+    $("#btnSave").on("click", save);
+    $("#btnCancel").on("click", cancel);
+    $("#dueDate").datepicker({
+        dateFormat: "DD, dd.mm.yy" //"dd.mm.yy"
+    });
 });
 
 function save(){
