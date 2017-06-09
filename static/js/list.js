@@ -12,7 +12,7 @@ $(document).ready(function () {
     renderItems();
 });
 
-const entryHtml = Handlebars.compile(document.getElementById("entries").innerText);
+const entryHtml = Handlebars.compile(document.getElementById("tmplEntries").innerText);
 
 function renderItems() {
     var itemlist = localStorage.getItem("entry");

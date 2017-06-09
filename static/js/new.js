@@ -3,7 +3,7 @@
 const gmaxImportance = 5;
 var gImportance = 0;
 
-const entryHtml = Handlebars.compile(document.getElementById("entry").innerText);
+const entryHtml = Handlebars.compile(document.getElementById("tmplForm").innerText);
 
 $(document).ready(function () {
     //$("#title").val('Initialwerte Titel falls noetig');
@@ -16,6 +16,7 @@ $(document).ready(function () {
         duedate: "2017-06-15T10:00:00.000Z",
         state: "open"
     };
+    gImportance = item.importance;
     $("#form").html(entryHtml(item)); // innerHTML=entryHtml(songs.sort(compareSongs));
 
     showImportance();
@@ -97,7 +98,7 @@ function showImportance() {
     }
     html += '</span>';
     html += '<button onclick="impMinus()">-</button><button onclick="impPlus()">+</button>';
-    $('.importanceForm').html(html);
+    $('.formImportanceInp').html(html);
 }
 
 function validateImportance(importance) {

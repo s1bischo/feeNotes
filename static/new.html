@@ -8,17 +8,17 @@
 </head>
 <body>
     <main id="form"></main>
-    <script id='entry' type='text/x-handlebars-template'>
-        <div class="title">Titel</div>
-        <div class="titleForm"><input type="text" id="title" value="{{ this.title }}"><div class="titleError"></div></div>
-        <div class="details">Beschreibung</div>
-        <div class="detailsForm"><input type="text" id="details" value="{{ this.details }}"></div>
-        <div class="importance">Wichtigkeit</div>
-        <div class="importanceForm"></div>
-        <div class="dueDate">Erledigt bis:</div>
-        <div class="dueDateForm"><input type="text" id="dueDate" value="{{formatDate this.duedate}}"></div>
-        <div class="save"><button id="btnSave" type="button">Speichern</button></div>
-        <div class="Cancel"><button id="btnCancel" type="button">Cancel</button></div>
+    <script id='tmplForm' type='text/x-handlebars-template'>
+        <div class="formTitleDes">Titel</div>
+        <div class="formTitleInp"><input type="text" id="title" value="{{ this.title }}"><div class="titleError"></div></div>
+        <div class="formDetailsDes">Beschreibung</div>
+        <div class="formDetailsInp"><input type="text" id="details" value="{{ this.details }}"></div>
+        <div class="formImportanceDes">Wichtigkeit</div>
+        <div class="formImportanceInp"></div>
+        <div class="formDueDateDes">Erledigt bis</div>
+        <div class="formDueDateInp"><input type="text" id="dueDate" value="{{formatDate this.duedate}}"></div>
+        <div class="formSaveInp"><button id="btnSave" type="button">Speichern</button></div>
+        <div class="formCancelInp"><button id="btnCancel" type="button">Cancel</button></div>
     </script>
 
 
