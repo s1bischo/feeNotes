@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
-    <main class="main">
+    <main id="form"></main>
+    <script id='entry' type='text/x-handlebars-template'>
         <div class="title">Titel</div>
         <div class="titleForm"><input type="text" id="title"><div class="titleError"></div></div>
         <div class="details">Beschreibung</div>
-        <div class="detailsForm"><input type="text" id="details"></div>
+        <div class="detailsForm"><input type="text" id="details">{{ this.details }}</div>
         <div class="importance">Wichtigkeit</div>
         <div class="importanceForm"></div>
         <div class="dueDate">Erledigt bis:</div>
         <div class="dueDateForm"><input type="text" id="dueDate"></div>
         <div class="save"><button id="btnSave" type="button">Speichern</button></div>
         <div class="Cancel"><button id="btnCancel" type="button">Cancel</button></div>
-    </main>
+    </script>
+
 
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

@@ -13,6 +13,7 @@ $(document).ready(function () {
 });
 
 const entryHtml = Handlebars.compile(document.getElementById("entries").innerText);
+
 function renderItems() {
     var itemlist = localStorage.getItem("entry");
     var finishedfilter = localStorage.getItem("finishedfilter");

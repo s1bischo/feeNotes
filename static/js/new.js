@@ -3,6 +3,8 @@
 const gmaxImportance = 5;
 var gImportance = 0;
 
+const entryHtml = Handlebars.compile(document.getElementById("entry").innerText);
+
 $(document).ready(function () {
     $("#btnSave").on("click", save);
     $("#btnCancel").on("click", cancel);
@@ -12,9 +14,11 @@ $(document).ready(function () {
     //$("#title").val('Initialwerte Titel falls noetig');
     renderStyle();
 
+    var item = {details: "details inhalt"};
+    $("#form").html(entryHtml(item)); // innerHTML=entryHtml(songs.sort(compareSongs));
+
     showImportance();
 });
-
 
 function save(){
     var entry = new Object();
