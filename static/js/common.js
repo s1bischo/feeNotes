@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function renderStyle() {
     var cssStyle = localStorage.getItem("style");

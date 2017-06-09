@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const gmaxImportance = 5;
 var gImportance = 0;
@@ -26,7 +26,7 @@ function save(){
     entry.duedate = new Date(date[2], date[1]-1, date[0]); // JS special: month starts with zero: January = 0
     entry.duedate.setHours(12); // Save timestamp at 12:00 at actual timezone (if user changes timezone to +/-12h (showed date is not the same, but the moment is still the same!)
     entry.createdate = new Date();
-    entry.state = false;
+    entry.state = "open";
 
     //console.log(entry.createdate.toString());
     //console.log(entry.createdate);
@@ -85,7 +85,7 @@ function showImportance() {
         }
     }
     html += '</span>';
-    html += '<button onclick="impMinus()">-</button><button onclick="impPlus()">+</button>'
+    html += '<button onclick="impMinus()">-</button><button onclick="impPlus()">+</button>';
     $('.importanceForm').html(html);
 }
 

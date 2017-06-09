@@ -21,20 +21,23 @@
         </div>
     </div>
     <div id="item"></div>
-    <script id='entry' type='text/x-handlebars-template'>
+    <script id='entries' type='text/x-handlebars-template'>
         {{#each this}}
-        <div class="time" role="time">{{ this.duedate }}</div>
-        <div class="title" role="title">{{ this.title }}</div>
-        <div class="importance" role="importance">{{ this.importance }}</div>
-        <div class="state" role="state">{{ this.state }}</div>
-        <div class="details" role="details">{{ this.details }}</div>
-        <div class="edit" role="edit"><a href="#new">{{ this.edit }}</a></div>
+        <article class="entry">
+            <div class="entryTime" role="time">{{formatDate this.duedate}}</div>
+            <div class="entryTitle" role="title">{{ this.title }}</div>
+            <div class="entryImportance" role="importance">{{ this.importance }}</div>
+            <div class="entryState" role="state"><input type="checkbox" name="state" value="closed" {{ this.statechecked }}> {{ this.state }}</div>
+            <div class="entryDetails" role="details">{{ this.details }}</div>
+            <div class="entryEdit" role="edit"><button id="btnEdit" type="button">Edit</button></div>
+        </article>
         {{/each}}
     </script>
 
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
-    <script src="js/moment-with-locales.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script src="extern/moment-with-locales.js"></script>
     <script src="js/common.js"></script>
     <script src="js/list.js"></script>
 </body>

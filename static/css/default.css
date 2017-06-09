@@ -1,38 +1,7 @@
-/* versuch 1 */
-.newNote,
-.style{
-    padding: 1em;
-}
-.order {
-    background-color: white;
-    padding: 1em;
-}
-
-.filter {
-    padding: 1em;
-}
-
-.time {
-    padding: 1em;
-}
-.title {
-    padding: 1em;
-}
-.importance {
-    padding: 1em;
-}
-.state {
-    padding: 1em;
-}
-.details {
-    padding: 1em;
-}
-.edit {
-    padding: 1em;
-}
+/* Default style */
 
 select {
-    background-color: white; /* Green */
+    background-color: white;
     border: 2px solid darkgray;
     border-radius: 10px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -46,7 +15,7 @@ select {
 }
 
 button {
-    background-color: white; /* Green */
+    background-color: white;
     border: 2px solid darkgray;
     border-radius: 10px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -57,12 +26,18 @@ button {
     display: inline-block;
     font-size: 16px;
 }
+
+.entry div {
+    padding: 10px;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
 button:hover {
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .order button {
-    width: 33%;
+    width: 30%;
 }
 .filter button {
     width: 100%;
@@ -75,24 +50,66 @@ button:hover {
 .header {
     display: grid; /* basis einstellung fuer layouting grid, flexbox, .... */
     grid-template-columns: 1fr 30em; /* 1fr (one fraction): Anzahl spalten */
-    grid-template-rows: 6em; /* 100vh (full viewport height). */
-    background-color: lightgray;
+    grid-template-rows: 5em; /* 100vh (full viewport height). */
 }
 
 .subheader {
     display: grid; /* basis einstellung fuer layouting grid, flexbox, .... */
     grid-template-columns: 1fr 30em; /* 1fr (one fraction): Anzahl spalten */
     grid-template-rows: 6em; /* 100vh (full viewport height). */
-    background-color: lightgray;
 }
 
-.item {
+.entry {
     display: grid; /* basis einstellung fuer layouting grid, flexbox, .... */
-    grid-template-columns: 20em 1fr 20em; /* 1fr (one fraction): Anzahl spalten */
-    grid-template-rows: 5em 10em; /* 100vh (full viewport height). */
-    background-color: lightgray;
+    grid-template-columns: 20em 1fr 10em 20em; /* 1fr (one fraction): Anzahl spalten */
+    grid-template-rows: 3em 5em; /* 100vh (full viewport height). */
+}
+
+.entryEdit {
+    grid-row: 1 / 2;
+    grid-column: 4;
+}
+
+.entryDetails {
+    grid-row: 2;
+    grid-column: 2 / 3;
+    border: 3px solid black;
 }
 
 .header {
 
+}
+
+.rating {
+    display: inline-block;
+    margin-right: 2em;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+}
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #999;
+}
+.rating > span::after {
+    content: '\21AF';
+    -webkit-font-smoothing: antialiased;
+}
+.rating > span:hover,
+.rating > span:hover ~ span, .rating:not(:hover) > span.active {
+    color: transparent;
+}
+.rating > span:hover::before,
+.rating > span:hover ~ span::before, .rating:not(:hover) > span.active::before {
+    position: absolute;
+    left: 0;
+    content: '\21AF'; /* definiert den stern siehe: https://www.toptal.com/designers/htmlarrows/symbols/ */
+    font-weight: 900;
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    color: red;
+    -webkit-font-smoothing: antialiased;
 }

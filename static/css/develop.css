@@ -13,27 +13,27 @@
     padding: 1em;
 }
 
-.time {
+.entryTime {
     background-color: cyan;
     padding: 1em;
 }
-.title {
+.entryTitle {
     background-color: magenta;
     padding: 1em;
 }
-.importance {
+.entryImportance {
     background-color: yellow;
     padding: 1em;
 }
-.state {
+.entryState {
     background-color: gray;
     padding: 1em;
 }
-.details {
+.entryDetails {
     background-color: red;
     padding: 1em;
 }
-.edit {
+.entryEdit {
     background-color: green;
     padding: 1em;
 }
@@ -138,5 +138,3 @@ button:hover {
     color: red;
     -webkit-font-smoothing: antialiased;
 }
-
-

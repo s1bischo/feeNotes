@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 $(document).ready(function () {
     $("#btnNew").on("click", createNew);
@@ -12,7 +12,7 @@ $(document).ready(function () {
     renderItems();
 });
 
-const entryHtml = Handlebars.compile(document.getElementById("entry").innerText);
+const entryHtml = Handlebars.compile(document.getElementById("entries").innerText);
 function renderItems() {
     var itemlist = localStorage.getItem("entry");
     var finishedfilter = localStorage.getItem("finishedfilter");
@@ -22,11 +22,13 @@ function renderItems() {
         itemlist.forEach(function(elem, index) {
             if (finishedfilter === "true") {
                 // Filter show finished items not active -> remove finished items local
-                if (itemlist[index].state) {
+                if (itemlist[index].state !==  "open") {
                     itemlist[index].remove();
                 }
             }
-            itemlist[index].duedate = moment(elem.duedate).format("dddd, DD.MM.YYYY");
+            //itemlist[index].duedate = moment(elem.duedate).format("dddd, DD.MM.YYYY");
+            itemlist[index].statechecked = "checked";
+            itemlist[index].state = "Offen";
         });
 
     }
@@ -81,6 +83,7 @@ function showFinished() {
     var finishedfilter = localStorage.getItem("finishedfilter");
     if (finishedfilter === "true") {
         finishedfilter = "false";
+
     }
     else{
         finishedfilter = "true";
