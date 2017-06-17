@@ -27,8 +27,11 @@ Silvio Bischof
 
 - [ ] Zentraler Storage Manager (Class oder Modul)
 
+- [ ] !Importance mit subfilter eliminieren
+
 - [x] ```
     time darstellung by handlebars
+    ```
    ```
 
 - [ ] ```
@@ -40,7 +43,7 @@ Silvio Bischof
 - [ ] 5, 31.05.2017: JavaScript optimieren. Patterns anwenden. Nutzen von Klassen für die Datenhaltung.
    (Revealing) Module Pattern für die"Datenklassen" erstellen.
 
-- [ ] IIFE anwenden.
+- [x] IIFE anwenden.
 
 - [ ] 6, 07.06.2017: Client Modularisierung fortführen.
    Node-Module erstellen zum Verwalten der Daten auf dem Server.
