@@ -15,7 +15,6 @@
     });
 
     var mystorage = new Storage();
-
     const entryHtml = Handlebars.compile(document.getElementById("tmplEntries").innerText);
 
     function renderItems() {
@@ -27,7 +26,7 @@
     };
 
     function saveStyle(e) {
-        localStorage.setItem("style", $("#styleselect").val());
+        mystorage.setStyle($("#styleselect").val());
         renderStyle();
     }
 
@@ -47,17 +46,17 @@
     };
 
     function showFinished() {
-        var finishedfilter = localStorage.getItem("finishedfilter");
-        if (finishedfilter === "true") {
-            finishedfilter = "false";
-
-        }
-        else{
-            finishedfilter = "true";
-        }
-        localStorage.setItem("finishedfilter", finishedfilter);
+        mystorage.toggleFinishedFilter();
         renderItems();
 
     };
+
+    function renderStyle() {
+        var cssStyle = mystorage.getStyle();
+        if (cssStyle) {
+            $("#styleselect").val(cssStyle);
+            document.getElementById("style").href = "css/" + cssStyle + ".css";
+        }
+    }
 
 } ());

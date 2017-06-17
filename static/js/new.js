@@ -5,6 +5,7 @@
     const gmaxImportance = 5;
     var gImportance = 0;
 
+    var mystorage = new Storage();
     const entryHtml = Handlebars.compile(document.getElementById("tmplForm").innerText);
 
     $(document).ready(function () {
@@ -119,6 +120,14 @@
             importance = 0;
         }
         return importance;
+    }
+
+    function renderStyle() {
+        var cssStyle = mystorage.getStyle();
+        if (cssStyle) {
+            $("#styleselect").val(cssStyle);
+            document.getElementById("style").href = "css/" + cssStyle + ".css";
+        }
     }
 
 } ());

@@ -2,12 +2,8 @@
 
     class Storage {
         constructor() {
-            //this.facadeColor = color;
         }
 
-        paint (newColor) {
-                this.facadeColor = newColor;
-        };
 
         getNotesList() {
                 var itemlist = localStorage.getItem("entry");
@@ -15,8 +11,9 @@
                 if (itemlist) {
                     itemlist = JSON.parse(itemlist);
                     itemlist.sort(compareEntry);
+                    var filter = JSON.parse(localStorage.getItem("finishedfilter"));
                     itemlist.forEach(function(elem, index) {
-                        if (finishedfilter === "true") {
+                        if (filter) {
                             // Filter show finished items not active -> remove finished items local
                             if (itemlist[index].state !==  "open") {
                                 itemlist[index].remove();
@@ -34,13 +31,29 @@
                 return itemlist;
         };
 
-        setOrderBy(orderBy) {
+        setOrderBy (orderBy) {
             localStorage.setItem("order", orderBy);
         };
 
-        setFinishedFilter(finishedFilter) {
-            localStorage.setItem("finishedfilter", finishedFilter);
+        setFinishedFilter (finishedFilter) {
+            var filter = Boolean(finishedFilter);
+            localStorage.setItem("finishedfilter", JSON.stringify(filter));
         };
+
+        toggleFinishedFilter () {
+            var filter = JSON.parse(localStorage.getItem("finishedfilter"));
+            filter = !filter; // invert flag
+            localStorage.setItem("finishedfilter", JSON.stringify(filter));
+        };
+
+        getStyle () {
+            return JSON.parse(localStorage.getItem("style"));
+        };
+
+        setStyle (style) {
+            localStorage.setItem("style", JSON.stringify(style));
+        };
+
     }
 
 // Private
