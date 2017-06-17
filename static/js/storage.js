@@ -6,7 +6,7 @@
 
 
         getNotesList() {
-                var itemlist = localStorage.getItem("entry");
+                var itemlist = localStorage.getItem("entries");
                 var finishedfilter = localStorage.getItem("finishedfilter");
                 if (itemlist) {
                     itemlist = JSON.parse(itemlist);
@@ -30,6 +30,22 @@
                 }
                 return itemlist;
         };
+
+        addNote (entry) {
+                var storage = localStorage.getItem("entries");
+
+                if (storage) {
+                    storage = JSON.parse(storage);
+                }
+                else {
+                    storage = [];
+                }
+
+                storage.push(entry);
+                localStorage.setItem("entries", JSON.stringify(storage));
+        };
+
+
 
         setOrderBy (orderBy) {
             localStorage.setItem("order", orderBy);
@@ -80,19 +96,10 @@ function compareEntry (s1, s2) {
 
     NotesStorage.js: Modul, welches alle Funktionalitäten beinhaltet, welche benötigt werden um die Notes zu verwalten z.B. folgende Funktionen
 
-    GetNotes(orderBy, filterBy)
     AddNote(note)
     UpdateNote(note)
     GetNoteById(id)
 
-
-    getStyle()
-    setStyle
-
-    var cssStyle = localStorage.getItem("style");
-    if (cssStyle) {
-        $("#styleselect").val(cssStyle);
-        document.getElementById("style").href = "css/" + cssStyle + ".css";
-    }*/
+*/
 
 

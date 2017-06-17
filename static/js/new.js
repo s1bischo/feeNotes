@@ -1,9 +1,7 @@
-;( function() {
-    // closure scope
-    'use strict';
+'use strict';
 
-    const gmaxImportance = 5;
-    var gImportance = 0;
+(function() {
+    // closure scope
 
     var mystorage = new Storage();
     const entryHtml = Handlebars.compile(document.getElementById("tmplForm").innerText);
@@ -44,18 +42,8 @@
         //console.log(entry.createdate);
 
         if (entry.title) {
-            var storage = localStorage.getItem("entry");
-
-            if (storage) {
-                storage = JSON.parse(storage);
-            }
-            else {
-                storage = [];
-            }
-
-            storage.push(entry);
-            localStorage.setItem("entry", JSON.stringify(storage));
-            // TODO: window.location.replace("index.html");
+            mystorage.addNote(entry);
+            window.location.replace("index.html");
         }
         else {
             $(".titleError").html('Titel fehlt');
@@ -81,47 +69,6 @@
          showImportance();
     };
 
-
-    function impMinus() {
-        gImportance -= 1;
-        showImportance();
-    }
-
-    function impPlus() {
-        gImportance += 1;
-        showImportance();
-    }
-
-    function showImportance() {
-        // validate importance
-        gImportance = validateImportance(gImportance);
-
-        // create html for importance
-        var html = '<span class="rating">';
-        for (var i = 1; i <= gmaxImportance; i++) {
-            if (i <= (gmaxImportance - gImportance)) {
-                html += '<span onclick="updateImportance(' + (gmaxImportance + 1 - i) + ')""></span>';
-            }
-            else {
-                html += '<span onclick="updateImportance(' + (gmaxImportance + 1 - i) + ')" class="active"></span>';
-            }
-        }
-        html += '</span>';
-        html += '<button onclick="impMinus()">-</button><button onclick="impPlus()">+</button>';
-        $('.formImportanceInp').html(html);
-    }
-
-    function validateImportance(importance) {
-        importance = Number(importance);
-        if (importance > gmaxImportance) {
-            importance = gmaxImportance;
-        }
-        if (importance < 0) {
-            importance = 0;
-        }
-        return importance;
-    }
-
     function renderStyle() {
         var cssStyle = mystorage.getStyle();
         if (cssStyle) {
@@ -131,3 +78,49 @@
     }
 
 } ());
+
+// Public methods
+const gmaxImportance = 5;
+var gImportance = 0;
+
+function impMinus() {
+    gImportance -= 1;
+    showImportance();
+}
+
+function impPlus() {
+    gImportance += 1;
+    showImportance();
+}
+
+
+function showImportance() {
+    // validate importance
+    gImportance = validateImportance(gImportance);
+
+    // create html for importance
+    var html = '<span class="rating">';
+    for (var i = 1; i <= gmaxImportance; i++) {
+        if (i <= (gmaxImportance - gImportance)) {
+            html += '<span onclick="updateImportance(' + (gmaxImportance + 1 - i) + ')""></span>';
+        }
+        else {
+            html += '<span onclick="updateImportance(' + (gmaxImportance + 1 - i) + ')" class="active"></span>';
+        }
+    }
+    html += '</span>';
+    html += '<button onclick="impMinus()">-</button><button onclick="impPlus()">+</button>';
+    $('.formImportanceInp').html(html);
+}
+
+
+function validateImportance(importance) {
+    importance = Number(importance);
+    if (importance > gmaxImportance) {
+        importance = gmaxImportance;
+    }
+    if (importance < 0) {
+        importance = 0;
+    }
+    return importance;
+}
