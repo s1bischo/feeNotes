@@ -39,7 +39,7 @@ button:hover {
     width: 100%;
 }
 
-.entryEdit button {
+.entEdit button {
     width: 140px;
     height: 100%;
 }
@@ -60,28 +60,29 @@ button:hover {
     grid-template-rows: 6em; /* 100vh (full viewport height). */
 }
 
-/* entry item */
-.entry div {
-    padding:  10px 20px;
-    font-family: Verdana, Helvetica, Arial, sans-serif;
-}
-
 .entry {
     display: grid; /* basis einstellung fuer layouting grid, flexbox, .... */
     grid-template-columns: 300px 1fr 150px 180px; /* 1fr (one fraction): Anzahl spalten */
     grid-template-rows: 60px 100px; /* 100vh (full viewport height). */
 }
 
-.entryEdit {
+/* entry item */
+#item div[class*="entry"] {
+    padding:  10px 20px;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+.entEdit {
     grid-row: 1 / span 2;
     grid-column: 4;
     text-align: center;
 
-    padding-top: 40px !important;
-    padding-right: 0px !important;
-    padding-left: 0px !important;
-    padding-bottom: 0px !important;
+    padding-top: 40px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
 }
+
 
 .entryDetails {
     grid-row: 2;

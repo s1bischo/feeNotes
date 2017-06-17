@@ -27,16 +27,12 @@ Silvio Bischof
 
 - [ ] Zentraler Storage Manager (Class oder Modul)
 
-- [ ] !Importance mit subfilter eliminieren
+- [x] !Importance mit subfilter eliminieren
 
-- [x] ```
-    time darstellung by handlebars
-    ```
-   ```
+- [x] time darstellung by handlebars
 
-- [ ] ```
-   umbauen richtiger bool: JSON.parse(JSON.stringify(true))
-   ```
+- [ ] umbauen richtiger bool: JSON.parse(JSON.stringify(true))
+
 
 - [ ] Detailseite ausprogrammieren: Erfassen / Editieren
 
