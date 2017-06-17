@@ -14,48 +14,12 @@
         renderItems();
     });
 
+    var mystorage = new Storage();
+
     const entryHtml = Handlebars.compile(document.getElementById("tmplEntries").innerText);
 
     function renderItems() {
-        var itemlist = localStorage.getItem("entry");
-        var finishedfilter = localStorage.getItem("finishedfilter");
-        if (itemlist) {
-            itemlist = JSON.parse(itemlist);
-            itemlist.sort(compareEntry);
-            itemlist.forEach(function(elem, index) {
-                if (finishedfilter === "true") {
-                    // Filter show finished items not active -> remove finished items local
-                    if (itemlist[index].state !==  "open") {
-                        itemlist[index].remove();
-                    }
-                }
-                //itemlist[index].duedate = moment(elem.duedate).format("dddd, DD.MM.YYYY");
-                itemlist[index].statechecked = "checked";
-                itemlist[index].state = "Offen";
-            });
-
-        }
-        else {
-            itemlist = [];
-        }
-        $("#item").html(entryHtml(itemlist)); // innerHTML=entryHtml(songs.sort(compareSongs));
-    }
-
-    function compareEntry(s1, s2) {
-        switch(localStorage.getItem("order")) {
-            case "finish":
-                return new Date(s1.duedate).getTime() > new Date(s2.duedate).getTime();
-                break;
-            case "created":
-                return new Date(s1.createdate).getTime() > new Date(s2.createdate).getTime();
-                break;
-            case "importance":
-                return s1.importance < s2.importance;
-                break;
-            default:
-                return s1.duedate < s2.duedate;
-        }
-
+        $("#item").html(entryHtml(mystorage.getNotesList())); // innerHTML=entryHtml(songs.sort(compareSongs));
     }
 
     function createNew(){
@@ -68,17 +32,17 @@
     }
 
     function orderByFinish() {
-        localStorage.setItem("order", "finish");
+        mystorage.setOrderBy("finish");
         renderItems();
     };
 
     function orderByCreated() {
-        localStorage.setItem("order", "created");
+        mystorage.setOrderBy("created");
         renderItems();
     };
 
     function orderByImportance() {
-        localStorage.setItem("order", "importance");
+        mystorage.setOrderBy("importance");
         renderItems();
     };
 
