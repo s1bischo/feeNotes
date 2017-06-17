@@ -29,7 +29,7 @@
             <div class="entryImportance" role="importance">{{ this.importance }}</div>
             <div class="entryState" role="state"><input type="checkbox" name="state" value="closed" {{ this.statechecked }}> {{ this.state }}</div>
             <div class="entryDetails" role="details">{{ this.details }}</div>
-            <div class="entEdit" role="edit"><button id="btnEdit" type="button">Edit</button></div>
+            <div class="entEdit" role="edit"><button id="btnEdit" type="button" data-id="{{ this.id }}">>Edit</button></div>
         </article>
         {{/each}}
     </script>
@@ -38,7 +38,6 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
     <script src="js/handlebars.js"></script>
     <script src="extern/moment-with-locales.js"></script>
-    <script src="js/common.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/list.js"></script>
 </body>

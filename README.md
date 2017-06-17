@@ -19,7 +19,10 @@ Silvio Bischof
       Einen zweiten sinnvollen Style ausdenken.
 - [x] 4, 24.05.2017: Hauptseite ausprogrammieren: Anzeigen der Einträge / Filtern / Sortieren
 - [x] Handlebars verwenden für das Rendern der Einträge.
-- [ ] Zentraler Storage Manager (Class oder Modul)
+- [x] Zentraler Storage Manager (Class oder Modul)
+      - [ ] Edit Button: id abgefüllt -> Listener auf Button setzen oder globale Funktion ID -> new.html#id= oder GET variable
+      - [ ] getById
+      - [ ] Editierung
 - [x] !Importance mit subfilter eliminieren
 - [x] time darstellung by handlebars
 - [ ] Warnungen prüfen Webstorm

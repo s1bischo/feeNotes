@@ -33,14 +33,21 @@
 
         addNote (entry) {
                 var storage = localStorage.getItem("entries");
+                entry.id = 1;
 
                 if (storage) {
                     storage = JSON.parse(storage);
+                    storage.forEach(function (iItem) {
+                            // create unique id
+                            if (iItem.id >= entry.id) {
+                                entry.id = iItem.id + 1;
+                            }
+                    });
+
                 }
                 else {
                     storage = [];
                 }
-
                 storage.push(entry);
                 localStorage.setItem("entries", JSON.stringify(storage));
         };
