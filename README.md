@@ -20,16 +20,16 @@ Silvio Bischof
 - [x] 4, 24.05.2017: Hauptseite ausprogrammieren: Anzeigen der Einträge / Filtern / Sortieren
 - [x] Handlebars verwenden für das Rendern der Einträge.
 - [x] Zentraler Storage Manager (Class oder Modul)
-      - [ ] Edit Button: id abgefüllt -> Listener auf Button setzen oder globale Funktion ID -> new.html#id= oder GET variable
+      - [x] Edit Button: id abgefüllt -> Listener auf Button setzen oder globale Funktion ID -> new.html#id= oder GET variable
       - [ ] getById
       - [ ] Editierung
 - [x] !Importance mit subfilter eliminieren
 - [x] time darstellung by handlebars
 - [ ] Warnungen prüfen Webstorm
-- [ ] umbauen richtiger bool: JSON.parse(JSON.stringify(true))
+- [x] umbauen richtiger bool: JSON.parse(JSON.stringify(true))
 
 
-- [ ] Detailseite ausprogrammieren: Erfassen / Editieren
+- [x] Detailseite ausprogrammieren: Erfassen / Editieren
 
 - [ ] 5, 31.05.2017: JavaScript optimieren. Patterns anwenden. Nutzen von Klassen für die Datenhaltung.
    (Revealing) Module Pattern für die"Datenklassen" erstellen.

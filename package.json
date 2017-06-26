@@ -1,0 +1,19 @@
+{
+  "name": "feenotes",
+  "version": "1.0.0",
+  "description": "CAS-FEE notes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s1bischo/feeNotes.git"
+  },
+  "author": "s1bischo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s1bischo/feeNotes/issues"
+  },
+  "homepage": "https://github.com/s1bischo/feeNotes#readme"
+}
