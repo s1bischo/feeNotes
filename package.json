@@ -12,8 +12,10 @@
   },
   "author": "s1bischo",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/s1bischo/feeNotes/issues"
-  },
-  "homepage": "https://github.com/s1bischo/feeNotes#readme"
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4",
+    "method-override": "^2.3.3",
+    "nedb": "^1.8.0"
+  }
 }
