@@ -2,7 +2,7 @@ const store = require("../services/notesStore.js");
 
 
 module.exports.showIndex = function(req, res){
-    res.sendfile("static/index.html");
+    res.redirect('/index.html');
 };
 
 module.exports.createNote = function(req, res)
