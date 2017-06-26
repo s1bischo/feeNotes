@@ -10,6 +10,10 @@
         $("#btnImportance").on("click", orderByImportance);
         $("#btnFinished").on("click", showFinished);
 
+        // append listener over complete item list to prevent listener memory leaks while dom changes
+        $("#items").on("click", bubbledItemEvent);
+
+
         renderStyle();
         renderItems();
     });
@@ -22,7 +26,15 @@
     }
 
     function createNew(){
-        window.location.replace("new.html");
+        window.location.replace("edit.html");
+    };
+
+    function bubbledItemEvent(event){
+        const buttonSongId = event.target.getAttribute("data-id");
+        if (event.target.id == "btnEdit") {
+            let itemid = Number(event.target.getAttribute("data-id"));
+            window.location.replace("edit.html?id=" + itemid);
+        }
     };
 
     function saveStyle(e) {
