@@ -30,10 +30,12 @@
     };
 
     function bubbledItemEvent(event){
-        const buttonSongId = event.target.getAttribute("data-id");
+        let itemid = Number(event.target.getAttribute("data-id"));
         if (event.target.id == "btnEdit") {
-            let itemid = Number(event.target.getAttribute("data-id"));
             window.location.replace("edit.html?id=" + itemid);
+        }
+        else if (event.target.id == "state") {
+            mystorage.toggleState(itemid);
         }
     };
 

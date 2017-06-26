@@ -36,7 +36,7 @@
         entry.importance = validateImportance(gImportance);
         entry.duedate = createTimeStamp($("#dueDate").val());
         entry.createdate = new Date();
-        entry.state = "open";
+        entry.done = false;
 
         //console.log(entry.createdate.toString());
         //console.log(entry.createdate);

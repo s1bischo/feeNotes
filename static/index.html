@@ -27,7 +27,7 @@
             <div class="entryTime" role="time">{{formatDate this.duedate}}</div>
             <div class="entryTitle" role="title">{{ this.title }}</div>
             <div class="entryImportance" role="importance">{{ this.importance }}</div>
-            <div class="entryState" role="state"><input type="checkbox" name="state" value="closed" {{ this.statechecked }}> {{ this.state }} </div>
+            <div class="entryState" role="state"><input id="state" type="checkbox" value="closed" data-id="{{ this.id }}" {{ formatState this.done }}> Erledigt </div>
             <div class="entryDetails" role="details">{{ this.details }}</div>
             <div class="entEdit" role="edit"><button id="btnEdit" type="button" data-id="{{ this.id }}">Edit</button></div>
         </article>

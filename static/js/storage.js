@@ -15,13 +15,10 @@
                     itemlist.forEach(function(elem, index) {
                         if (filter) {
                             // Filter show finished items not active -> remove finished items local
-                            if (itemlist[index].state !==  "open") {
+                            if (itemlist[index].done) {
                                 itemlist[index].remove();
                             }
                         }
-                        //itemlist[index].duedate = moment(elem.duedate).format("dddd, DD.MM.YYYY");
-                        itemlist[index].statechecked = "checked";
-                        itemlist[index].state = "Offen";
                     });
 
                 }
@@ -51,6 +48,19 @@
                 storage.push(entry);
                 localStorage.setItem("entries", JSON.stringify(storage));
         };
+
+        toggleState(id) {
+            var itemlist = localStorage.getItem("entries");
+            if (itemlist) {
+                itemlist = JSON.parse(itemlist);
+                itemlist.forEach(function(elem, index) {
+                    if (elem.id == id) {
+                        elem.done = !elem.done;
+                    }
+                });
+                localStorage.setItem("entries", JSON.stringify(itemlist));
+            }
+        }
 
 
 
