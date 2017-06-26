@@ -66,8 +66,8 @@ button:hover {
     grid-template-rows: 60px 100px; /* 100vh (full viewport height). */
 }
 
-/* entry item */
-#item div[class*="entry"] {
+/* entry items */
+#items div[class*="entry"] {
     padding:  10px 20px;
     font-family: Verdana, Helvetica, Arial, sans-serif;
 }
@@ -92,7 +92,7 @@ button:hover {
 }
 
 /* Edit form */
-input {
+input[type=text] {
     padding:  10px 20px;
     border: 2px solid darkgray;
     border-radius: 10px;

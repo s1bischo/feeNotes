@@ -18,7 +18,7 @@
     const entryHtml = Handlebars.compile(document.getElementById("tmplEntries").innerText);
 
     function renderItems() {
-        $("#item").html(entryHtml(mystorage.getNotesList())); // innerHTML=entryHtml(songs.sort(compareSongs));
+        $("#items").html(entryHtml(mystorage.getNotesList())); // innerHTML=entryHtml(songs.sort(compareSongs));
     }
 
     function createNew(){

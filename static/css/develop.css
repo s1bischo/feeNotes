@@ -93,7 +93,7 @@ button:hover {
     background-color: lightgray;
 }
 
-.item {
+.items {
     display: grid; /* basis einstellung fuer layouting grid, flexbox, .... */
     grid-template-columns: 20em 1fr 20em; /* 1fr (one fraction): Anzahl spalten */
     grid-template-rows: 5em 10em; /* 100vh (full viewport height). */
