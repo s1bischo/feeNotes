@@ -30,18 +30,15 @@ Silvio Bischof
 
 
 - [x] Detailseite ausprogrammieren: Erfassen / Editieren
-
 - [ ] 5, 31.05.2017: JavaScript optimieren. Patterns anwenden. Nutzen von Klassen für die Datenhaltung.
    (Revealing) Module Pattern für die"Datenklassen" erstellen.
-
 - [x] IIFE anwenden.
-
 - [ ] 6, 07.06.2017: Client Modularisierung fortführen.
    Node-Module erstellen zum Verwalten der Daten auf dem Server.
     Bonus: Neue Einträge sollen auf andern Browser sichtbar werden. z.B. durch Polling.
-
-- [ ] 7, 14.06.2017: Die REST API vom Server implementieren. Diese im Client anbinden.
-
+- [x] 7, 14.06.2017: Die REST API vom Server implementieren. Diese im Client anbinden.
+   - [ ] Rest Anfragen statt localStorage
+   - [ ] Rest Serverside
 - [ ] 8+9, 02.07.2017: Finalisieren & Abgabe
 
 

@@ -7,12 +7,14 @@ module.exports.showIndex = function(req, res){
 
 module.exports.createNote = function(req, res)
 {
-    res.format({
-        'application/json': function(){
-            res.send({});
-        }
+    console.log(req);
+    let order = store.add(req.body.name, util.current(req), function(err, order) {
+        res.format({
+            'application/json': function(){
+                res.json(order);
+            }
+        });
     });
-
 };
 
 module.exports.showNotes = function(req, res)

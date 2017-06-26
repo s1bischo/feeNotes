@@ -1,7 +1,47 @@
 'use strict';
 
+
+
+/*
+class RestClient {
+    login(userName, pwd) {
+        return ajaxUtil.ajax("POST", "/login/", {email: userName, pwd: pwd}).done(function (token) {
+            valueStorage.setItem(tokenKey, token);
+        });
+    }
+
+    logout() {
+        valueStorage.setItem(tokenKey, undefined);
+        return $.Deferred().resolve().promise();
+    }
+
+    createPizza(pizzeName) {
+        return ajaxUtil.ajax("POST", "/orders/", {name: pizzeName,}, {authorization: "Bearer " + valueStorage.getItem(tokenKey)});
+    }
+
+    isLogin() {
+        return !!valueStorage.getItem(tokenKey);
+    }
+
+    getOrders() {
+        return ajaxUtil.ajax("GET", "/orders/", undefined, {authorization: "Bearer " + valueStorage.getItem(tokenKey)});
+    }
+
+    getOrder(id) {
+        return ajaxUtil.ajax("GET", `/orders/${id}`, undefined, {authorization: "Bearer " + valueStorage.getItem(tokenKey)});
+    }
+
+    deleteOrder(id) {
+        return ajaxUtil.ajax("DELETE", `/orders/${id}`, undefined, {authorization: "Bearer " + valueStorage.getItem(tokenKey)});
+    }
+}
+export default new RestClient();
+*/
+
+
     class Storage {
         constructor() {
+
         }
 
 
@@ -47,6 +87,8 @@
                 }
                 storage.push(entry);
                 localStorage.setItem("entries", JSON.stringify(storage));
+
+            ajax("POST", "/notes/", entry);
         };
 
         toggleState(id) {
@@ -106,6 +148,17 @@ function compareEntry (s1, s2) {
     }
 
 };
+
+function ajax(metod, url, data, headers) {
+    return $.ajax({
+        dataType: "json",
+        contentType: "application/json",
+        headers: headers,
+        method: metod,
+        url: url,
+        data: JSON.stringify(data)
+    });
+}
 
     /*
 
