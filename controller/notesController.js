@@ -8,7 +8,19 @@ module.exports.showIndex = function(req, res){
 module.exports.createNote = function(req, res)
 {
     console.log(req);
-    let order = store.add(req.body.name, util.current(req), function(err, order) {
+    let order = store.add(req.body, function(err, order) {
+        res.format({
+            'application/json': function(){
+                res.json(order);
+            }
+        });
+    });
+};
+
+module.exports.editNote = function(req, res)
+{
+    let order = store.update(req.params.id, req.body, function(err, order) {
+//     let order = store.update({_id: req.params.id}, { $set: { system: 'solar system' } }, { multi: false }, function(err, order) {
         res.format({
             'application/json': function(){
                 res.json(order);
@@ -19,7 +31,19 @@ module.exports.createNote = function(req, res)
 
 module.exports.showNotes = function(req, res)
 {
-    store.get(req.params.id, util.current(req), function(err, order) {
+    store.all('duedate', function(err, order) {
+        res.format({
+            'application/json': function(){
+                console.log(order);
+                res.json(order);
+            }
+        });
+    });
+};
+
+module.exports.showNote = function(req, res)
+{
+    store.get(req.params.id, function(err, order) {
         res.format({
             'application/json': function(){
                 res.json(order);
@@ -30,7 +54,7 @@ module.exports.showNotes = function(req, res)
 
 module.exports.deleteNote =  function (req, res)
 {
-    store.delete(  req.params.id, util.current(req), function(err, order) {
+    store.delete(req.params.id, 'duedate', function(err, order) {
         res.format({
             'application/json': function(){
                 res.json(order);

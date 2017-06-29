@@ -22,7 +22,10 @@
     const entryHtml = Handlebars.compile(document.getElementById("tmplEntries").innerText);
 
     function renderItems() {
-        $("#items").html(entryHtml(mystorage.getNotesList())); // innerHTML=entryHtml(songs.sort(compareSongs));
+        // since storage is rest interface from server (give asynch callback function)
+        mystorage.getNotesList(function( data ) {
+            $("#items").html(entryHtml(data));
+        });
     }
 
     function createNew(){
@@ -30,12 +33,12 @@
     };
 
     function bubbledItemEvent(event){
-        let itemid = Number(event.target.getAttribute("data-id"));
+        let itemid = event.target.getAttribute("data-id");
         if (event.target.id == "btnEdit") {
-            window.location.replace("edit.html?id=" + itemid);
+            window.location.replace("edit.html#" + itemid);
         }
         else if (event.target.id == "state") {
-            mystorage.toggleState(itemid);
+            mystorage.toggleState(itemid, event.target.checked, renderItems); // render Items callback after updated
         }
     };
 

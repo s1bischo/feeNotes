@@ -10,13 +10,45 @@
         //$("#title").val('Initialwerte Titel falls noetig');
         renderStyle();
 
-        var item = {
-            title: "Test titel",
-            details: "details inhalt",
-            importance: 2,
-            duedate: "2017-06-15T10:00:00.000Z",
-            state: "open"
-        };
+
+        //https://github.com/allmarkedup/purl
+        /*
+        *"#id=isfisfusoi".match("id=(.*)")
+         Array [ "id=isfisfusoi", "isfisfusoi" ]
+         "#id=isfisfusoi".match("id=(.*)")[0]
+         "id=isfisfusoi"
+         "#id=isfisfusoi".match("id=(.*)")[1]
+         "isfisfusoi"
+         location
+         Location → http://127.0.0.1:3000/edit.html
+         */
+
+        let id =window.location.hash.substring(1); // $_GET[#id]
+        if (id.length > 0) {
+            console.log(id);
+        }
+        else {
+            var item = {
+                title: "Test titel",
+                details: "details inhalt",
+                importance: 3,
+                duedate: "2017-06-15T10:00:00.000Z",
+                state: "open"
+            };
+            gImportance = item.importance;
+            $("#form").html(entryHtml(item)); // innerHTML=entryHtml(songs.sort(compareSongs));
+        }
+        showImportance();
+
+        $("#btnSave").on("click", save);
+        $("#btnCancel").on("click", cancel);
+        $("#dueDate").datepicker({
+            dateFormat: "DD, dd.mm.yy" //"dd.mm.yy"
+        });
+    });
+
+    function createEditForm(item) {
+
         gImportance = item.importance;
         $("#form").html(entryHtml(item)); // innerHTML=entryHtml(songs.sort(compareSongs));
 
@@ -27,7 +59,7 @@
         $("#dueDate").datepicker({
             dateFormat: "DD, dd.mm.yy" //"dd.mm.yy"
         });
-    });
+    }
 
     function save(){
         var entry = new Object();
@@ -35,11 +67,9 @@
         entry.details = $("#details").val();
         entry.importance = validateImportance(gImportance);
         entry.duedate = createTimeStamp($("#dueDate").val());
-        entry.createdate = new Date();
+        entry.createdate = new Date().valueOf();
         entry.done = false;
 
-        //console.log(entry.createdate.toString());
-        //console.log(entry.createdate);
 
         if (entry.title) {
             mystorage.addNote(entry);
@@ -57,7 +87,7 @@
         console.log(date);
         var duedate = new Date(date[2], date[1]-1, date[0]); // JS special: month starts with zero: January = 0
         duedate.setHours(12); // Save timestamp at 12:00 at actual timezone (if user changes timezone to +/-12h (showed date is not the same, but the moment is still the same!)
-        return duedate;
+        return duedate.valueOf();
     }
 
     function cancel(){

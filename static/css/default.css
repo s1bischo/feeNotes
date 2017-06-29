@@ -62,7 +62,7 @@ button:hover {
 
 .entry {
     display: grid; /* basis einstellung fuer layouting grid, flexbox, .... */
-    grid-template-columns: 300px 1fr 150px 180px; /* 1fr (one fraction): Anzahl spalten */
+    grid-template-columns: 300px 1fr 200px 180px; /* 1fr (one fraction): Anzahl spalten */
     grid-template-rows: 60px 100px; /* 100vh (full viewport height). */
 }
 
@@ -141,7 +141,7 @@ input[type=text] {
     text-align: right;
 }
 
-/* Rating */
+/* Rating with hover */
 
 .rating {
     display: inline-block;
@@ -167,6 +167,43 @@ input[type=text] {
 }
 .rating > span:hover::before,
 .rating > span:hover ~ span::before, .rating:not(:hover) > span.active::before {
+    position: absolute;
+    left: 0;
+    content: '\21AF'; /* definiert den stern siehe: https://www.toptal.com/designers/htmlarrows/symbols/ */
+    font-weight: 900;
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    color: red;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+/* StaicRating without hover */
+
+.staticrating {
+    display: inline-block;
+    margin-right: 2em;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+}
+.staticrating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #999;
+}
+.staticrating > span::after {
+    content: '\21AF';
+    -webkit-font-smoothing: antialiased;
+}
+.staticrating > span.active {
+    color: transparent;
+}
+.staticrating > span.active::before {
     position: absolute;
     left: 0;
     content: '\21AF'; /* definiert den stern siehe: https://www.toptal.com/designers/htmlarrows/symbols/ */

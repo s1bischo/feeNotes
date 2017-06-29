@@ -1,18 +1,25 @@
 const Datastore = require('nedb');
 const db = new Datastore({ filename: './data/notes.db', autoload: true });
 
-function Notes(pizzaName, orderedBy)
+function Notes(note)
 {
-    this.orderedBy = orderedBy;
-    this.pizzaName = pizzaName;
-    this.orderDate = JSON.stringify(new Date());
-    this.state = "OK";
+    const { title, details, importance, duedate, createdate, done} = note;
+    this.title = title;
+    this.details = details;
+    this.importance = importance;
+    this.duedate = duedate;
+    this.createdate = createdate; // einfach stringify? in console idetnisch:
+    /*
+     duedate: '2017-06-30T10:00:00.000Z',
+     createdate: '2017-06-27T19:54:53.044Z',
+     */
+    this.done = done;
 }
 
 
-function publicAddNotes(pizzaName, orderedBy, callback)
+function publicAddNotes(entry, callback)
 {
-    let order = new Notes(pizzaName, orderedBy);
+    let order = new Notes(entry);
     db.insert(order, function(err, newDoc){
         if(callback){
             callback(err, newDoc);
@@ -26,18 +33,26 @@ function publicRemove(id, currentUser, callback) {
     });
 }
 
-function publicGet(id, currentUser, callback)
+function publicUpdate(id, update, callback) {
+    db.update({_id: id}, {$set: update}, {}, function (err, count){
+        if(callback){
+            callback(err, count);
+        }
+    });
+}
+
+function publicGet(id, orderfield, callback)
 {
-    db.findOne({ _id: id, orderedBy : currentUser }, function (err, doc) {
+    db.findOne({ _id: id, orderedBy : orderfield }, function (err, doc) {
         callback( err, doc);
     });
 }
 
-function publicAll()
+function publicAll(orderfield, callback)
 {
     db.find({}, function (err, docs) {
         callback( err, docs);
     });
 }
 
-module.exports = {add : publicAddNotes, delete : publicRemove, get : publicGet, all : publicAll};
+module.exports = {add : publicAddNotes, delete : publicRemove, get : publicGet, all : publicAll, update : publicUpdate};

@@ -33,12 +33,16 @@ Silvio Bischof
 - [ ] 5, 31.05.2017: JavaScript optimieren. Patterns anwenden. Nutzen von Klassen für die Datenhaltung.
    (Revealing) Module Pattern für die"Datenklassen" erstellen.
 - [x] IIFE anwenden.
-- [ ] 6, 07.06.2017: Client Modularisierung fortführen.
+- [x] 6, 07.06.2017: Client Modularisierung fortführen.
    Node-Module erstellen zum Verwalten der Daten auf dem Server.
     Bonus: Neue Einträge sollen auf andern Browser sichtbar werden. z.B. durch Polling.
 - [x] 7, 14.06.2017: Die REST API vom Server implementieren. Diese im Client anbinden.
-   - [ ] Rest Anfragen statt localStorage
-   - [ ] Rest Serverside
+   - [x] Rest Anfragen statt localStorage
+   - [x] Rest Serverside
+   - [x] Storage: ajax("POST", "/notes/", entry); alles zu Rest umbauen und Serverseitig abspeichern
+- [ ] Importance Anzeige auf List
+- [ ] 2ter Style verbessern
+- [ ] gImportance ersetzen
 - [ ] 8+9, 02.07.2017: Finalisieren & Abgabe
 
 

@@ -1,0 +1,5 @@
+{"title":"Auftrag 1","details":"Fertig machen","importance":4,"duedate":"2017-06-28T10:00:00.000Z","createdate":{"$$date":1498593106329},"done":true,"_id":"JfiKriHc0C1AfjX4"}
+{"title":"Test titel","details":"details inhalt","importance":3,"duedate":"2017-06-15T10:00:00.000Z","createdate":"2017-06-27T21:40:25.401Z","done":true,"_id":"TlOTseXCf86Azwoy"}
+{"title":"Ohne Wichtigkeit","details":"Was au immer","importance":0,"duedate":"2017-09-06T10:00:00.000Z","createdate":"2017-06-27T21:30:29.690Z","done":true,"_id":"bZ3cqJjWfle2xjKe"}
+{"title":"Eintrag 2","details":"Lorem ipsum","importance":4,"duedate":"2017-06-30T10:00:00.000Z","createdate":{"$$date":1498593293117},"done":false,"_id":"s1hcw1kN2yZm9SOf"}
+{"title":"Auftrag 1","details":"Fertig machen","importance":4,"duedate":"2017-06-28T10:00:00.000Z","createdate":{"$$date":1498593106329},"done":false,"_id":"JfiKriHc0C1AfjX4"}

@@ -1,113 +1,28 @@
 'use strict';
 
-
-
-/*
-class RestClient {
-    login(userName, pwd) {
-        return ajaxUtil.ajax("POST", "/login/", {email: userName, pwd: pwd}).done(function (token) {
-            valueStorage.setItem(tokenKey, token);
-        });
-    }
-
-    logout() {
-        valueStorage.setItem(tokenKey, undefined);
-        return $.Deferred().resolve().promise();
-    }
-
-    createPizza(pizzeName) {
-        return ajaxUtil.ajax("POST", "/orders/", {name: pizzeName,}, {authorization: "Bearer " + valueStorage.getItem(tokenKey)});
-    }
-
-    isLogin() {
-        return !!valueStorage.getItem(tokenKey);
-    }
-
-    getOrders() {
-        return ajaxUtil.ajax("GET", "/orders/", undefined, {authorization: "Bearer " + valueStorage.getItem(tokenKey)});
-    }
-
-    getOrder(id) {
-        return ajaxUtil.ajax("GET", `/orders/${id}`, undefined, {authorization: "Bearer " + valueStorage.getItem(tokenKey)});
-    }
-
-    deleteOrder(id) {
-        return ajaxUtil.ajax("DELETE", `/orders/${id}`, undefined, {authorization: "Bearer " + valueStorage.getItem(tokenKey)});
-    }
-}
-export default new RestClient();
-*/
-
-
     class Storage {
         constructor() {
 
         }
 
-
-        getNotesList() {
-                var itemlist = localStorage.getItem("entries");
-                var finishedfilter = localStorage.getItem("finishedfilter");
-                if (itemlist) {
-                    itemlist = JSON.parse(itemlist);
-                    itemlist.sort(compareEntry);
-                    var filter = JSON.parse(localStorage.getItem("finishedfilter"));
-                    itemlist.forEach(function(elem, index) {
-                        if (filter) {
-                            // Filter show finished items not active -> remove finished items local
-                            if (itemlist[index].done) {
-                                itemlist[index].remove();
-                            }
-                        }
-                    });
-
-                }
-                else {
-                    itemlist = [];
-                }
-                return itemlist;
+        getNotesList(callback) {
+            var filter = JSON.parse(localStorage.getItem("finishedfilter")); // true: show finished items
+            var order = JSON.parse(localStorage.getItem("order"));
+            var result = ajax("GET", "/notes", {finishedfilter: filter, order: order}, undefined);
+            result.done(callback);
         };
 
         addNote (entry) {
-                var storage = localStorage.getItem("entries");
-                entry.id = 1;
-
-                if (storage) {
-                    storage = JSON.parse(storage);
-                    storage.forEach(function (iItem) {
-                            // create unique id
-                            if (iItem.id >= entry.id) {
-                                entry.id = iItem.id + 1;
-                            }
-                    });
-
-                }
-                else {
-                    storage = [];
-                }
-                storage.push(entry);
-                localStorage.setItem("entries", JSON.stringify(storage));
-
-            ajax("POST", "/notes/", entry);
+            ajax("PUT", "/note", entry);
         };
 
-        toggleState(id) {
-            var itemlist = localStorage.getItem("entries");
-            if (itemlist) {
-                itemlist = JSON.parse(itemlist);
-                itemlist.forEach(function(elem, index) {
-                    if (elem.id == id) {
-                        elem.done = !elem.done;
-                    }
-                });
-                localStorage.setItem("entries", JSON.stringify(itemlist));
-            }
+        toggleState(id, done, callback) {
+            var result = ajax("PATCH", "/note/" + id, {done: done}, undefined);
+            result.done(callback);
         }
 
-
-
         setOrderBy (orderBy) {
-            localStorage.setItem("order", orderBy);
+            localStorage.setItem("order", JSON.stringify(orderBy));
         };
 
         setFinishedFilter (finishedFilter) {
@@ -132,6 +47,7 @@ export default new RestClient();
     }
 
 // Private
+/*
 function compareEntry (s1, s2) {
     switch(localStorage.getItem("order")) {
         case "finish":
@@ -147,7 +63,7 @@ function compareEntry (s1, s2) {
             return s1.duedate < s2.duedate;
     }
 
-};
+};*/
 
 function ajax(metod, url, data, headers) {
     return $.ajax({
@@ -156,7 +72,7 @@ function ajax(metod, url, data, headers) {
         headers: headers,
         method: metod,
         url: url,
-        data: JSON.stringify(data)
+        data: JSON.stringify(data),
     });
 }
 
