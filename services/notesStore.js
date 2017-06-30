@@ -41,9 +41,9 @@ function publicUpdate(id, update, callback) {
     });
 }
 
-function publicGet(id, orderfield, callback)
+function publicGet(id, callback)
 {
-    db.findOne({ _id: id, orderedBy : orderfield }, function (err, doc) {
+    db.findOne({ _id: id }, function (err, doc) {
         callback( err, doc);
     });
 }

@@ -5,6 +5,11 @@
 
         }
 
+        getNoteById(id, callback) {
+            var result = ajax("GET", "/note/"+id, undefined, undefined);
+            result.done(callback);
+        }
+
         getNotesList(callback) {
             var filter = JSON.parse(localStorage.getItem("finishedfilter")); // true: show finished items
             var order = JSON.parse(localStorage.getItem("order"));
@@ -14,6 +19,14 @@
 
         addNote (entry) {
             ajax("PUT", "/note", entry);
+        };
+
+        addNote (entry) {
+            ajax("POST", "/note", entry);
+        };
+
+        updateNote (entry) {
+            ajax("PUT", "/note/" + entry._id, entry);
         };
 
         toggleState(id, done, callback) {
@@ -75,17 +88,3 @@ function ajax(metod, url, data, headers) {
         data: JSON.stringify(data),
     });
 }
-
-    /*
-
-
-
-    NotesStorage.js: Modul, welches alle Funktionalitäten beinhaltet, welche benötigt werden um die Notes zu verwalten z.B. folgende Funktionen
-
-    AddNote(note)
-    UpdateNote(note)
-    GetNoteById(id)
-
-*/
-
-

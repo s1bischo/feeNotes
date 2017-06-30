@@ -43,6 +43,8 @@ Silvio Bischof
 - [ ] Importance Anzeige auf List
 - [ ] 2ter Style verbessern
 - [ ] gImportance ersetzen
+- [ ] packageJson erstellen Abhängigkeiten
+- [ ] auf anderem host testen
 - [ ] 8+9, 02.07.2017: Finalisieren & Abgabe
 
 

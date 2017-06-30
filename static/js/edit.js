@@ -25,26 +25,19 @@
 
         let id =window.location.hash.substring(1); // $_GET[#id]
         if (id.length > 0) {
-            console.log(id);
+            mystorage.getNoteById(id, createEditForm);
         }
         else {
-            var item = {
+            let item = {
                 title: "Test titel",
                 details: "details inhalt",
                 importance: 3,
                 duedate: "2017-06-15T10:00:00.000Z",
                 state: "open"
             };
-            gImportance = item.importance;
-            $("#form").html(entryHtml(item)); // innerHTML=entryHtml(songs.sort(compareSongs));
+            createEditForm(item);
         }
-        showImportance();
 
-        $("#btnSave").on("click", save);
-        $("#btnCancel").on("click", cancel);
-        $("#dueDate").datepicker({
-            dateFormat: "DD, dd.mm.yy" //"dd.mm.yy"
-        });
     });
 
     function createEditForm(item) {
@@ -63,6 +56,7 @@
 
     function save(){
         var entry = new Object();
+        entry._id = $("#_id").val();
         entry.title = $("#title").val();
         entry.details = $("#details").val();
         entry.importance = validateImportance(gImportance);
@@ -70,10 +64,17 @@
         entry.createdate = new Date().valueOf();
         entry.done = false;
 
-
         if (entry.title) {
-            mystorage.addNote(entry);
-            window.location.replace("index.html");
+            if (entry._id.length > 0) {
+                // id is set -> update entry
+                mystorage.updateNote(entry);
+                window.location.replace("index.html");
+            }
+            else {
+                // id is empty -> add new note
+                mystorage.addNote(entry);
+                window.location.replace("index.html");
+            }
         }
         else {
             $(".titleError").html('Titel fehlt');
