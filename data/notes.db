@@ -6,3 +6,10 @@
 {"title":"Eintrag 2","details":"Lorem ipsum","importance":4,"duedate":"2017-06-30T10:00:00.000Z","createdate":{"$$date":1498593293117},"done":false,"_id":"s1hcw1kN2yZm9SOf"}
 {"title":"Neuer Eintrag 777","details":"details inhalt","importance":3,"duedate":1497520800000,"createdate":1498810995357,"done":false,"_id":"rrClUiQFluQnUIhK"}
 {"title":"Neuer Eintrag 777 und noch etwas","details":"details inhalt und nomol was","importance":3,"duedate":1502877600000,"createdate":1498811025343,"done":false,"_id":"rrClUiQFluQnUIhK"}
+{"title":"Test titel","details":"details inhalt","importance":3,"duedate":1497520800000,"createdate":1498809573225,"done":true,"_id":"cd9H7IXzVNLMivXy"}
+{"title":"Neuer Eintrag 777 und noch etwas","details":"details inhalt und nomol was","importance":3,"duedate":1502877600000,"createdate":1498811025343,"done":true,"_id":"rrClUiQFluQnUIhK"}
+{"title":"Eintrag 2","details":"Lorem ipsum","importance":4,"duedate":"2017-06-30T10:00:00.000Z","createdate":{"$$date":1498593293117},"done":true,"_id":"s1hcw1kN2yZm9SOf"}
+{"title":"Auftrag 1","details":"Fertig machen","importance":4,"duedate":"2017-06-28T10:00:00.000Z","createdate":{"$$date":1498593106329},"done":false,"_id":"JfiKriHc0C1AfjX4"}
+{"title":"HalliHallo","details":"Fertig machen","importance":4,"duedate":1498644000000,"createdate":1498811086984,"done":false,"_id":"JfiKriHc0C1AfjX4"}
+{"title":"HalliHallo","details":"Fertig machen","importance":0,"duedate":1498644000000,"createdate":1498811097621,"done":false,"_id":"JfiKriHc0C1AfjX4"}
+{"title":"test","details":"","importance":0,"duedate":1498816800000,"createdate":1498812668062,"done":false,"_id":"xcmqRBf0sPQlKxRa"}

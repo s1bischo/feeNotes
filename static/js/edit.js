@@ -10,29 +10,13 @@
         //$("#title").val('Initialwerte Titel falls noetig');
         renderStyle();
 
-
-        //https://github.com/allmarkedup/purl
-        /*
-        *"#id=isfisfusoi".match("id=(.*)")
-         Array [ "id=isfisfusoi", "isfisfusoi" ]
-         "#id=isfisfusoi".match("id=(.*)")[0]
-         "id=isfisfusoi"
-         "#id=isfisfusoi".match("id=(.*)")[1]
-         "isfisfusoi"
-         location
-         Location → http://127.0.0.1:3000/edit.html
-         */
-
         let id =window.location.hash.substring(1); // $_GET[#id]
         if (id.length > 0) {
             mystorage.getNoteById(id, createEditForm);
         }
         else {
             let item = {
-                title: "Test titel",
-                details: "details inhalt",
-                importance: 3,
-                duedate: "2017-06-15T10:00:00.000Z",
+                importance: 0,
                 state: "open"
             };
             createEditForm(item);
@@ -77,7 +61,7 @@
             }
         }
         else {
-            $(".titleError").html('Titel fehlt');
+            $(".formTitleInp > input").css('border', '2px solid red');
         }
     };
 
@@ -85,7 +69,7 @@
         // create TimeStamp (Date) from date field string: Thursday, 15.06.2017
         var timedaysplit = timestring.split(","); // separate day, Date
         var date = timedaysplit[1].split("."); // use Date only [1] for calculation
-        console.log(date);
+        //console.log(date);
         var duedate = new Date(date[2], date[1]-1, date[0]); // JS special: month starts with zero: January = 0
         duedate.setHours(12); // Save timestamp at 12:00 at actual timezone (if user changes timezone to +/-12h (showed date is not the same, but the moment is still the same!)
         return duedate.valueOf();
@@ -93,11 +77,6 @@
 
     function cancel(){
         window.location.replace("index.html");
-    };
-
-    function updateImportance(rate) {
-        gImportance = rate;
-         showImportance();
     };
 
     function renderStyle() {
@@ -123,6 +102,11 @@ function impPlus() {
     gImportance += 1;
     showImportance();
 }
+
+function updateImportance(rate) {
+    gImportance = rate;
+    showImportance();
+};
 
 
 function showImportance() {

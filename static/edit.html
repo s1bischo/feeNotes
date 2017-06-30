@@ -11,7 +11,7 @@
     <script id='tmplForm' type='text/x-handlebars-template'>
         <input type="hidden" id="_id" value="{{ this._id }}">
         <div class="formTitleDes">Titel</div>
-        <div class="formTitleInp"><input type="text" id="title" value="{{ this.title }}"><div class="titleError"></div></div>
+        <div class="formTitleInp"><input type="text" id="title" value="{{ this.title }}" required></div>
         <div class="formDetailsDes">Beschreibung</div>
         <div class="formDetailsInp"><input type="text" id="details" value="{{ this.details }}"></div>
         <div class="formImportanceDes">Wichtigkeit</div>
