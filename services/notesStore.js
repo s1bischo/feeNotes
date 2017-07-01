@@ -48,10 +48,10 @@ function publicGet(id, callback)
     });
 }
 
-function publicAll(orderfield, callback)
+function publicAll(query, callback)
 {
     let order;
-    switch (orderfield) {
+    switch (query.order) {
         case "duedate":
             order = { duedate: 1 };
             break;
@@ -65,7 +65,16 @@ function publicAll(orderfield, callback)
             order = { duedate: 1 };
     }
 
-    db.find().sort(order).exec( function (err, docs) {
+    let filter;
+    if (query.finishedfilter == 'true') {
+        // filterfinished = true -> show all items
+        filter = {};
+    }
+    else {
+        filter = {done: false};
+    }
+
+    db.find(filter).sort(order).exec( function (err, docs) {
         callback( err, docs);
     });
 }

@@ -31,16 +31,8 @@ module.exports.editNote = function(req, res)
 
 module.exports.showNotes = function(req, res)
 {
-    //console.log(req.query);
-    //console.log(req.query.finishedfilter);
-    //let finishedfilter = req.query('finishedfilter');
-    //let finishedfilter = req.param('finishedfilter', 'hallo');
-    ////console.log(finishedfilter);
-    console.log(req.query);
-    console.log(req.query.order);
 
-
-    store.all(req.query.order, function(err, order) {
+    store.all(req.query, function(err, order) {
         res.format({
             'application/json': function(){
                 res.json(order);

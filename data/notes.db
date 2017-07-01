@@ -1,4 +1,5 @@
-{"title":"Test 1","details":"Lorem Ipsum","importance":0,"duedate":1498903200000,"createdate":1498905279498,"done":false,"_id":"djJKtsTexU7w8vsi"}
-{"title":"Test 2","details":"Nochmals was","importance":1,"duedate":1502877600000,"createdate":1498905295555,"done":false,"_id":"n2VwWV1zRLx3QUwn"}
 {"title":"Test 3","details":"hallihallo","importance":1,"duedate":1498989600000,"createdate":1498905320499,"done":false,"_id":"IvTKSfcX9v7NeZlS"}
-{"title":"Test 4","details":"","importance":5,"duedate":1499076000000,"createdate":1498905336604,"done":false,"_id":"aDvdt4xZbtpA9AOP"}
+{"title":"Test 4","details":"","importance":5,"duedate":1499076000000,"createdate":1498905336604,"done":true,"_id":"aDvdt4xZbtpA9AOP"}
+{"title":"Test 1","details":"Lorem Ipsum","importance":0,"duedate":1498903200000,"createdate":1498905279498,"done":false,"_id":"djJKtsTexU7w8vsi"}
+{"title":"Test 2","details":"Nochmals was","importance":1,"duedate":1502877600000,"createdate":1498905295555,"done":true,"_id":"n2VwWV1zRLx3QUwn"}
+{"title":"Test 5","details":"Testeintrag later","importance":3,"duedate":1522836000000,"createdate":1498905926126,"done":false,"_id":"ADohECPCmIFB1q6m"}
