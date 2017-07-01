@@ -7,13 +7,13 @@ module.exports.showIndex = function(req, res){
 
 module.exports.createNote = function(req, res)
 {
-    note = req.body;
+    let note = req.body;
     note.createdate = new Date().valueOf(); // add create date
 
-    let order = store.add(note, function(err, order) {
+    store.add(note, function(err, note) {
         res.format({
             'application/json': function(){
-                res.json(order);
+                res.json(note);
             }
         });
     });
@@ -21,7 +21,7 @@ module.exports.createNote = function(req, res)
 
 module.exports.editNote = function(req, res)
 {
-    let order = store.update(req.params.id, req.body, function(err, order) {
+    store.update(req.params.id, req.body, function(err, order) {
 //     let order = store.update({_id: req.params.id}, { $set: { system: 'solar system' } }, { multi: false }, function(err, order) {
         res.format({
             'application/json': function(){

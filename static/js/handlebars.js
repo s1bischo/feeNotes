@@ -11,8 +11,8 @@ Handlebars.registerHelper('formatState', function(done) {
 Handlebars.registerHelper('formatImportance', function(importance) {
     const gmaxImportance = 5;
 
-    var html = '<span class="staticrating">';
-    for (var i = 1; i <= gmaxImportance; i++) {
+    let html = '<span class="staticrating">';
+    for (let i = 1; i <= gmaxImportance; i++) {
         if (i <= (gmaxImportance - importance)) {
             html += '<span></span>';
         }

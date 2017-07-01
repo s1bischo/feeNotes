@@ -1,7 +1,7 @@
 'use strict';
 
 // Public methods
-var Importance = new ImportanceContainer();
+let Importance = new ImportanceContainer();
 
 function impMinus() {
     Importance.dec();
@@ -16,13 +16,13 @@ function impPlus() {
 function updateImportance(rate) {
     Importance.set(rate);
     showImportance();
-};
+}
 
 
 function showImportance() {
     // create html for importance
-    var html = '<span class="rating">';
-    for (var i = 1; i <= Importance.MAX_IMPORTANCE; i++) {
+    let html = '<span class="rating">';
+    for (let i = 1; i <= Importance.MAX_IMPORTANCE; i++) {
         if (i <= (Importance.MAX_IMPORTANCE - Importance.get())) {
             html += '<span onclick="updateImportance(' + (Importance.MAX_IMPORTANCE + 1 - i) + ')""></span>';
         }
@@ -39,7 +39,7 @@ function showImportance() {
 (function() {
     // closure scope
 
-    var mystorage = new Storage();
+    let mystorage = new Storage();
     const entryHtml = Handlebars.compile(document.getElementById("tmplForm").innerText);
 
     $(document).ready(function () {
@@ -75,7 +75,7 @@ function showImportance() {
     }
 
     function save(){
-        var entry = new Object();
+        let entry = new Object();
         entry._id = $("#_id").val();
         entry.title = $("#title").val();
         entry.details = $("#details").val();
@@ -99,24 +99,24 @@ function showImportance() {
         else {
             $(".formTitleInp > input").css('border', '2px solid red');
         }
-    };
+    }
 
     function createTimeStamp(timestring) {
         // create TimeStamp (Date) from date field string: Thursday, 15.06.2017
-        var timedaysplit = timestring.split(","); // separate day, Date
-        var date = timedaysplit[1].split("."); // use Date only [1] for calculation
+        let timedaysplit = timestring.split(","); // separate day, Date
+        let date = timedaysplit[1].split("."); // use Date only [1] for calculation
         //console.log(date);
-        var duedate = new Date(date[2], date[1]-1, date[0]); // JS special: month starts with zero: January = 0
+        let duedate = new Date(date[2], date[1]-1, date[0]); // JS special: month starts with zero: January = 0
         duedate.setHours(12); // Save timestamp at 12:00 at actual timezone (if user changes timezone to +/-12h (showed date is not the same, but the moment is still the same!)
         return duedate.valueOf();
     }
 
     function cancel(){
         window.location.replace("index.html");
-    };
+    }
 
     function renderStyle() {
-        var cssStyle = mystorage.getStyle();
+        let cssStyle = mystorage.getStyle();
         if (cssStyle) {
             $("#styleselect").val(cssStyle);
             document.getElementById("style").href = "css/" + cssStyle + ".css";

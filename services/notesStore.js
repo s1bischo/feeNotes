@@ -29,7 +29,7 @@ function publicAddNotes(entry, callback)
 
 function publicRemove(id, currentUser, callback) {
     db.update({_id: id, orderedBy : currentUser}, {$set: {"state": "DELETED"}}, {}, function (err, count) {
-        publicGet(id,currentUser, callback);
+        publicGet(id, currentUser, callback);
     });
 }
 

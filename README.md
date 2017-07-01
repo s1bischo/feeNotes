@@ -13,7 +13,7 @@ Silvio Bischof
 
 - Start node server:
 
-  node index.js
+  npm start
 
 
 
@@ -51,8 +51,8 @@ Silvio Bischof
 - [x] Importance Anzeige auf List
 - [ ] 2ter Style verbessern
 - [x] gImportance ersetzen
-- [ ] packageJson erstellen Abhängigkeiten
-- [ ] auf anderem host testen
+- [x] packageJson erstellen Abhängigkeiten
+- [x] auf anderem host testen
 - [ ] Warnungen prüfen Webstorm
 - [ ] 8+9, 02.07.2017: Finalisieren & Abgabe
 

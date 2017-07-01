@@ -18,7 +18,7 @@
         renderItems();
     });
 
-    var mystorage = new Storage();
+    let mystorage = new Storage();
     const entryHtml = Handlebars.compile(document.getElementById("tmplEntries").innerText);
 
     function renderItems() {
@@ -30,7 +30,7 @@
 
     function createNew(){
         window.location.replace("edit.html");
-    };
+    }
 
     function bubbledItemEvent(event){
         let itemid = event.target.getAttribute("data-id");
@@ -40,7 +40,7 @@
         else if (event.target.id == "state") {
             mystorage.toggleState(itemid, event.target.checked, renderItems); // render Items callback after updated
         }
-    };
+    }
 
     function saveStyle(e) {
         mystorage.setStyle($("#styleselect").val());
@@ -50,26 +50,25 @@
     function orderByFinish() {
         mystorage.setOrderBy("duedate");
         renderItems();
-    };
+    }
 
     function orderByCreated() {
         mystorage.setOrderBy("createdate");
         renderItems();
-    };
+    }
 
     function orderByImportance() {
         mystorage.setOrderBy("importance");
         renderItems();
-    };
+    }
 
     function showFinished() {
         mystorage.toggleFinishedFilter();
         renderItems();
-
-    };
+    }
 
     function renderStyle() {
-        var cssStyle = mystorage.getStyle();
+        let cssStyle = mystorage.getStyle();
         if (cssStyle) {
             $("#styleselect").val(cssStyle);
             document.getElementById("style").href = "css/" + cssStyle + ".css";
