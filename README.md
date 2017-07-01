@@ -3,13 +3,21 @@ CAS-FEE notes
 
 Silvio Bischof
 
+## Running HowTo
+
+- Clone repository
+
+- Install dependencies:
+
+  npm update
+
+- Start node server:
+
+  node index.js
+
 
 
 ## Schedule
-
-
-
-
 
 - [x] 1: Projekt im Github eintragen.
 - [x] 2: HTML Gerüst erstellen für die WireFrames inkl. CSS. Ändern der Wireframes ist erlaubt.
