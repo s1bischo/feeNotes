@@ -21,8 +21,8 @@ Silvio Bischof
 - [x] Handlebars verwenden für das Rendern der Einträge.
 - [x] Zentraler Storage Manager (Class oder Modul)
       - [x] Edit Button: id abgefüllt -> Listener auf Button setzen oder globale Funktion ID -> new.html#id= oder GET variable
-      - [ ] getById
-      - [ ] Editierung
+      - [x] getById
+      - [x] Editierung
 - [x] !Importance mit subfilter eliminieren
 - [x] time darstellung by handlebars
 - [ ] Warnungen prüfen Webstorm
@@ -40,9 +40,10 @@ Silvio Bischof
    - [x] Rest Anfragen statt localStorage
    - [x] Rest Serverside
    - [x] Storage: ajax("POST", "/notes/", entry); alles zu Rest umbauen und Serverseitig abspeichern
+- [ ] Sortierung fixen
 - [ ] Importance Anzeige auf List
 - [ ] 2ter Style verbessern
-- [ ] gImportance ersetzen
+- [x] gImportance ersetzen
 - [ ] packageJson erstellen Abhängigkeiten
 - [ ] auf anderem host testen
 - [ ] 8+9, 02.07.2017: Finalisieren & Abgabe

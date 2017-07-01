@@ -193,7 +193,6 @@ input[type=text] {
     display: inline-block;
     position: relative;
     width: 1.1em;
-    cursor: pointer;
     color: #999;
 }
 .staticrating > span::after {

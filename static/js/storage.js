@@ -59,6 +59,43 @@
 
     }
 
+    class ImportanceContainer {
+
+        constructor() {
+            // constant
+            this.MIN_IMPORTANCE = 0;
+            this.MAX_IMPORTANCE = 5;
+
+            // properties
+            this.importance = 0;
+
+        }
+
+        set(importance) {
+            if (importance >= this.MIN_IMPORTANCE && importance <= this.MAX_IMPORTANCE) {
+                this.importance = importance;
+            }
+        }
+
+        inc() {
+            if (this.importance < this.MAX_IMPORTANCE) {
+                this.importance += 1;
+            }
+        }
+
+        dec() {
+            if (this.importance > this.MIN_IMPORTANCE) {
+                this.importance -= 1;
+            }
+        }
+
+        get() {
+            return this.importance;
+        }
+
+
+    }
+
 // Private
 /*
 function compareEntry (s1, s2) {

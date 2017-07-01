@@ -1,5 +1,41 @@
 'use strict';
 
+// Public methods
+var Importance = new ImportanceContainer();
+
+function impMinus() {
+    Importance.dec();
+    showImportance();
+}
+
+function impPlus() {
+    Importance.inc();
+    showImportance();
+}
+
+function updateImportance(rate) {
+    Importance.set(rate);
+    showImportance();
+};
+
+
+function showImportance() {
+    // create html for importance
+    var html = '<span class="rating">';
+    for (var i = 1; i <= Importance.MAX_IMPORTANCE; i++) {
+        if (i <= (Importance.MAX_IMPORTANCE - Importance.get())) {
+            html += '<span onclick="updateImportance(' + (Importance.MAX_IMPORTANCE + 1 - i) + ')""></span>';
+        }
+        else {
+            html += '<span onclick="updateImportance(' + (Importance.MAX_IMPORTANCE + 1 - i) + ')" class="active"></span>';
+        }
+    }
+    html += '</span>';
+    html += '<button onclick="impMinus()">-</button><button onclick="impPlus()">+</button>';
+    $('.formImportanceInp').html(html);
+}
+
+
 (function() {
     // closure scope
 
@@ -16,7 +52,7 @@
         }
         else {
             let item = {
-                importance: 0,
+                importance: 0, // default importance new form
                 state: "open"
             };
             createEditForm(item);
@@ -26,7 +62,7 @@
 
     function createEditForm(item) {
 
-        gImportance = item.importance;
+        Importance.set(item.importance);
         $("#form").html(entryHtml(item)); // innerHTML=entryHtml(songs.sort(compareSongs));
 
         showImportance();
@@ -43,7 +79,7 @@
         entry._id = $("#_id").val();
         entry.title = $("#title").val();
         entry.details = $("#details").val();
-        entry.importance = validateImportance(gImportance);
+        entry.importance = Importance.get();
         entry.duedate = createTimeStamp($("#dueDate").val());
         entry.createdate = new Date().valueOf();
         entry.done = false;
@@ -88,54 +124,3 @@
     }
 
 } ());
-
-// Public methods
-const gmaxImportance = 5;
-var gImportance = 0;
-
-function impMinus() {
-    gImportance -= 1;
-    showImportance();
-}
-
-function impPlus() {
-    gImportance += 1;
-    showImportance();
-}
-
-function updateImportance(rate) {
-    gImportance = rate;
-    showImportance();
-};
-
-
-function showImportance() {
-    // validate importance
-    gImportance = validateImportance(gImportance);
-
-    // create html for importance
-    var html = '<span class="rating">';
-    for (var i = 1; i <= gmaxImportance; i++) {
-        if (i <= (gmaxImportance - gImportance)) {
-            html += '<span onclick="updateImportance(' + (gmaxImportance + 1 - i) + ')""></span>';
-        }
-        else {
-            html += '<span onclick="updateImportance(' + (gmaxImportance + 1 - i) + ')" class="active"></span>';
-        }
-    }
-    html += '</span>';
-    html += '<button onclick="impMinus()">-</button><button onclick="impPlus()">+</button>';
-    $('.formImportanceInp').html(html);
-}
-
-
-function validateImportance(importance) {
-    importance = Number(importance);
-    if (importance > gmaxImportance) {
-        importance = gmaxImportance;
-    }
-    if (importance < 0) {
-        importance = 0;
-    }
-    return importance;
-}
