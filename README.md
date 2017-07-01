@@ -39,7 +39,7 @@ Silvio Bischof
    - [x] Rest Anfragen statt localStorage
    - [x] Rest Serverside
    - [x] Storage: ajax("POST", "/notes/", entry); alles zu Rest umbauen und Serverseitig abspeichern
-- [ ] Sortierung fixen
+- [x] Sortierung fixen
 - [x] Importance Anzeige auf List
 - [ ] 2ter Style verbessern
 - [x] gImportance ersetzen
