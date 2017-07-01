@@ -19,8 +19,8 @@ function Notes(note)
 
 function publicAddNotes(entry, callback)
 {
-    let order = new Notes(entry);
-    db.insert(order, function(err, newDoc){
+    let note = new Notes(entry);
+    db.insert(note, function(err, newDoc){
         if(callback){
             callback(err, newDoc);
         }

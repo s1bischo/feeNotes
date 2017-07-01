@@ -7,8 +7,10 @@ module.exports.showIndex = function(req, res){
 
 module.exports.createNote = function(req, res)
 {
-    console.log(req);
-    let order = store.add(req.body, function(err, order) {
+    note = req.body;
+    note.createdate = new Date().valueOf(); // add create date
+
+    let order = store.add(note, function(err, order) {
         res.format({
             'application/json': function(){
                 res.json(order);

@@ -81,7 +81,7 @@ function showImportance() {
         entry.details = $("#details").val();
         entry.importance = Importance.get();
         entry.duedate = createTimeStamp($("#dueDate").val());
-        entry.createdate = new Date().valueOf();
+        //entry.createdate = new Date().valueOf(); // set create date at server: local timezone doesn't matter for createdate
         entry.done = false;
 
         if (entry.title) {
