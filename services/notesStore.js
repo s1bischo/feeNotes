@@ -50,7 +50,22 @@ function publicGet(id, callback)
 
 function publicAll(orderfield, callback)
 {
-    db.find({}, function (err, docs) {
+    let order;
+    switch (orderfield) {
+        case "duedate":
+            order = { duedate: 1 };
+            break;
+        case "createdate":
+            order = { createdate: 1 };
+            break;
+        case "importance":
+            order = { importance: -1 };
+            break;
+        default:
+            order = { duedate: 1 };
+    }
+
+    db.find().sort(order).exec( function (err, docs) {
         callback( err, docs);
     });
 }

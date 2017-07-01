@@ -13,7 +13,8 @@
         getNotesList(callback) {
             var filter = JSON.parse(localStorage.getItem("finishedfilter")); // true: show finished items
             var order = JSON.parse(localStorage.getItem("order"));
-            var result = ajax("GET", "/notes", {finishedfilter: filter, order: order}, undefined);
+            var result = ajax("GET", `/notes?finishedfilter=${filter}&order=${order}`, undefined, undefined); // do not send JSON object with GET
+            //var result = ajax("POST", "/notes", {finishedfilter: filter, order: order}, undefined);
             result.done(callback);
         };
 

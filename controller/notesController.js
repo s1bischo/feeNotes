@@ -31,10 +31,18 @@ module.exports.editNote = function(req, res)
 
 module.exports.showNotes = function(req, res)
 {
-    store.all('duedate', function(err, order) {
+    //console.log(req.query);
+    //console.log(req.query.finishedfilter);
+    //let finishedfilter = req.query('finishedfilter');
+    //let finishedfilter = req.param('finishedfilter', 'hallo');
+    ////console.log(finishedfilter);
+    console.log(req.query);
+    console.log(req.query.order);
+
+
+    store.all(req.query.order, function(err, order) {
         res.format({
             'application/json': function(){
-                console.log(order);
                 res.json(order);
             }
         });

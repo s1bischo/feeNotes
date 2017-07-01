@@ -25,12 +25,11 @@ Silvio Bischof
       - [x] Editierung
 - [x] !Importance mit subfilter eliminieren
 - [x] time darstellung by handlebars
-- [ ] Warnungen prüfen Webstorm
 - [x] umbauen richtiger bool: JSON.parse(JSON.stringify(true))
 
 
 - [x] Detailseite ausprogrammieren: Erfassen / Editieren
-- [ ] 5, 31.05.2017: JavaScript optimieren. Patterns anwenden. Nutzen von Klassen für die Datenhaltung.
+- [x] 5, 31.05.2017: JavaScript optimieren. Patterns anwenden. Nutzen von Klassen für die Datenhaltung.
    (Revealing) Module Pattern für die"Datenklassen" erstellen.
 - [x] IIFE anwenden.
 - [x] 6, 07.06.2017: Client Modularisierung fortführen.
@@ -41,11 +40,12 @@ Silvio Bischof
    - [x] Rest Serverside
    - [x] Storage: ajax("POST", "/notes/", entry); alles zu Rest umbauen und Serverseitig abspeichern
 - [ ] Sortierung fixen
-- [ ] Importance Anzeige auf List
+- [x] Importance Anzeige auf List
 - [ ] 2ter Style verbessern
 - [x] gImportance ersetzen
 - [ ] packageJson erstellen Abhängigkeiten
 - [ ] auf anderem host testen
+- [ ] Warnungen prüfen Webstorm
 - [ ] 8+9, 02.07.2017: Finalisieren & Abgabe
 
 

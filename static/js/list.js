@@ -48,12 +48,12 @@
     }
 
     function orderByFinish() {
-        mystorage.setOrderBy("finish");
+        mystorage.setOrderBy("duedate");
         renderItems();
     };
 
     function orderByCreated() {
-        mystorage.setOrderBy("created");
+        mystorage.setOrderBy("createdate");
         renderItems();
     };
 
