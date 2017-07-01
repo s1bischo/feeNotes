@@ -53,7 +53,7 @@ Silvio Bischof
 - [x] gImportance ersetzen
 - [x] packageJson erstellen Abhängigkeiten
 - [x] auf anderem host testen
-- [ ] Warnungen prüfen Webstorm
+- [x] Warnungen prüfen Webstorm
 - [ ] 8+9, 02.07.2017: Finalisieren & Abgabe
 
 
